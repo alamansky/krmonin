@@ -1,0 +1,36 @@
+/** @format */
+
+.card {
+	flex: 1;
+	min-width: 200px;
+	margin: $small 0 0 $small;
+	height: auto;
+	background-image: $gradient-white;
+	box-shadow: $shadow;
+	border-radius: 10px;
+
+	&__image {
+		width: 100%;
+		border-bottom: 2px solid $primary-color-light;
+		border-top-right-radius: 10px;
+		border-top-left-radius: 10px;
+	}
+
+	&__text {
+		padding: $tiny;
+	}
+
+	&__title {
+		text-align: center;
+		background-color: rgba($primary-color, 0.9);
+		color: $brand-white;
+		padding: 5px;
+		border-radius: 20px;
+	}
+
+	&__subtitle {
+		text-align: center;
+		font-style: italic;
+		opacity: 0.5;
+	}
+}

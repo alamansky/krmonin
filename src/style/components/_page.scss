@@ -1,0 +1,12 @@
+/** @format */
+
+.page {
+	padding: $small;
+	width: 100%;
+	min-height: 100vh;
+
+	&__image {
+		float: left;
+		margin-right: 16px;
+	}
+}

@@ -1,0 +1,37 @@
+/** @format */
+
+:root {
+	font-size: calc(12px + (16 - 14) * ((100vw - 400px) / (800 - 400)));
+}
+
+body {
+	background-color: $gradient-gray;
+	font-family: 'Merriweather Sans', sans-serif;
+	/* 	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-template-rows: 1fr;
+	grid-gap: var(--small); */
+	/* min-height: 100vh; */
+	display: flex;
+	line-height: 1.5;
+
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Merriweather', serif;
+}
+
+.content {
+	flex: 3;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: start;
+	margin-right: $large;
+}

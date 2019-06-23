@@ -1,0 +1,64 @@
+/** @format */
+
+.header {
+	flex: 1;
+	height: 100vh;
+	border-right: 0.5rem solid $primary-color-light;
+	background-image: $gradient-white;
+	padding: $small;
+	box-shadow: $shadow;
+
+	&__profile {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	&__menu {
+		margin-top: $small;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.profile__blurb {
+	opacity: 0.5;
+}
+
+.menu__list {
+	position: relative;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	padding-top: $tiny;
+	padding-bottom: $tiny;
+}
+
+.menu__list::before {
+	content: 'Menu';
+	padding: 5px;
+	font-size: 1rem;
+	position: relative;
+	background-color: $primary-color;
+	color: $brand-white;
+	top: -1.5rem;
+	left: -2rem;
+	border-radius: 10px;
+}
+
+.menu__link {
+	/* 	margin-bottom: $tiny; */
+	list-style-type: circle;
+	transition: all 0.3s ease;
+}
+
+.menu__link:hover {
+	transform: translateX(0.5rem);
+	cursor: pointer;
+}
+
+.menu__link:hover::marker {
+	transform: translateX(-0.5rem);
+	color: $secondary-color;
+	list-style-type: disc;
+}
