@@ -1,5 +1,7 @@
 /** @format */
 
+import splitMarkupString from './splitMarkupString';
+
 export default function generateMarkup(arr, parentElement) {
 	//get first/next element obj from array
 	let firstObj = arr.shift();
@@ -8,13 +10,18 @@ export default function generateMarkup(arr, parentElement) {
 	let firstElement = Object.keys(firstObj);
 
 	//destructure type and class into seperate variables
-	let [elementType, elementClass] = firstElement[0].split('.');
+	let [elementType, elementClass, elementAttributeName, elementAttributeValue] = splitMarkupString(firstElement[0]);
 
 	//create element of given type
 	let element = document.createElement(elementType);
 
 	//add given class to element
-	element.classList.add(elementClass);
+	elementClass && element.classList.add(elementClass);
+
+	//add given class to element
+	if (elementAttributeName) {
+		element.dataset[elementAttributeName] = elementAttributeValue;
+	}
 
 	//insert element into DOM
 	parentElement.insertBefore(element, null);
