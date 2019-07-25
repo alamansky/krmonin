@@ -15,7 +15,7 @@ export default function page() {
 							'h2.page__title': post.title.rendered,
 						},
 						{
-							'div.card__body': post.content.rendered,
+							'div.page__body': post.content.rendered,
 						},
 					],
 				},

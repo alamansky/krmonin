@@ -1,0 +1,17 @@
+[33mcommit c5426e522de3363eda4efaa2f42a1cdd12a627f4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Andrew Lamansky <andrewlamansky@gmail.com>
+Date:   Tue Jun 25 13:41:15 2019 -0400
+
+    refactor component architecture
+
+[33mcommit 965f989edd2ffa9370b7dc3169c54a9adf3d7d90[m
+Author: Andrew Lamansky <andrewlamansky@gmail.com>
+Date:   Sun Jun 23 13:13:39 2019 -0400
+
+    add page, header, and card components
+
+[33mcommit 270972b07fe68b1553695f36bcd6a398f3284fc0[m
+Author: Andrew Lamansky <andrewlamansky@gmail.com>
+Date:   Mon Jun 17 16:41:16 2019 -0400
+
+    initial commit

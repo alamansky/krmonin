@@ -1,0 +1,46 @@
+/** @format */
+
+$primary-color: rgb(0, 85, 78);
+$primary-color-dark: rgb(0, 61, 56);
+$primary-color-light: rgb(2, 199, 182); // #02c7b6
+
+$secondary-color: rgb(255, 108, 100); // #ff6c64
+
+$brand-white: rgb(255, 255, 255);
+$brand-gray: rgb(243, 238, 235);
+
+$brand-black: rgb(1, 1, 1);
+
+$gradient-white: radial-gradient(
+	circle,
+	rgba(255, 255, 255, 1),
+	rgba(255, 253, 254, 1),
+	rgba(255, 251, 251, 1),
+	rgba(254, 250, 247, 1),
+	rgba(251, 249, 244, 1)
+);
+$gradient-gray: linear-gradient(
+	to right bottom,
+	rgba(243, 238, 235, 1),
+	rgba(246, 233, 225, 1),
+	rgba(250, 229, 216, 1),
+	rgba(252, 224, 206, 1),
+	rgba(255, 219, 197, 1)
+);
+
+$shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
+$tiny: 1rem;
+$small: 2rem;
+
+$medium: 3rem;
+
+$large: 5rem;
+$extraLarge: 8rem;
+
+$mobile: 'screen and (max-width: 576px)';
+$tablet: 'screen and (max-width: 768px)';
+$desktop: 'screen and (max-width: 992px)';
+
+$brand-border-radius: 10px;
+$brand-transition: all 0.3s ease;

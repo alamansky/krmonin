@@ -10,17 +10,41 @@ export default function generateMarkup(arr, parentElement) {
 	let firstElement = Object.keys(firstObj);
 
 	//destructure type and class into seperate variables
-	let [elementType, elementClass, elementAttributeName, elementAttributeValue] = splitMarkupString(firstElement[0]);
+	let { elementType, elementClasses, elementAttributes } = splitMarkupString(firstElement[0]);
 
 	//create element of given type
 	let element = document.createElement(elementType);
 
-	//add given class to element
-	elementClass && element.classList.add(elementClass);
+	//add classes to element
+	if (elementClasses) {
+		elementClasses.forEach((style) => element.classList.add(style));
+	}
 
-	//add given class to element
-	if (elementAttributeName) {
-		element.dataset[elementAttributeName] = elementAttributeValue;
+	//add attributes to element
+	if (elementAttributes) {
+		elementAttributes.forEach((attribute) => {
+			let [attributeName, attributeValue] = attribute;
+			// if data-dash attribute, add to dataset property
+			if (attributeName.substring(0, 5) == 'data-') {
+				let abbr = attributeName.substring(5);
+				element.dataset[abbr] = attributeValue;
+				// if other attribute, check for attribute type and apply
+			} else {
+				switch (attributeName) {
+					case 'src':
+						element.src = attributeValue;
+						break;
+					case 'href':
+						element.href = attributeValue;
+						break;
+					case 'target':
+						element.target = attributeValue;
+						break;
+					default:
+						break;
+				}
+			}
+		});
 	}
 
 	//insert element into DOM

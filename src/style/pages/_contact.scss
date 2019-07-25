@@ -1,0 +1,15 @@
+/** @format */
+
+#mc_embed_signup {
+	background-color: $brand-white;
+	clear: left;
+	justify-self: center;
+	align-self: center;
+}
+
+.contact--success {
+	background-color: $secondary-color;
+	color: $brand-white;
+	padding: $tiny;
+	animation: fadeIn 1s ease;
+}

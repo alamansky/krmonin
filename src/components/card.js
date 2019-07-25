@@ -2,16 +2,19 @@
 
 import getData from '../utility/getData';
 import post from './post';
+import scrollToTop from '../utility/scrollToTop';
 
 export default function card() {
 	let arr = {
 		markup(post) {
 			return [
 				{
-					[`div.card[id=${post.id}`]: [
+					[`div.card${post.acf.featured ? '.card--featured' : ''}[data-type=${
+						post.categories[0] == 2 ? 'blog' : 'story'
+					}`]: [
 						{
-							'img.card__image': {
-								src: post['_embedded']['wp:featuredmedia']['0'].media_details.sizes.medium.source_url,
+							[`img.card__image${post.acf.featured ? '.card__image--featured' : ''}.card__image--grayscale`]: {
+								src: post['_embedded']['wp:featuredmedia']['0'].media_details.sizes.full.source_url,
 							},
 						},
 						{
@@ -23,7 +26,10 @@ export default function card() {
 									'h3.card__subtitle': post.acf.subtitle,
 								},
 								{
-									'p.card__excerpt': `${post.content.rendered.substring(0, 100)}...`,
+									'div.card__excerpt': `${post.excerpt.rendered}`,
+								},
+								{
+									[`button.button.button--primary.card__button[data-id=${post.id}`]: 'Continue Reading',
 								},
 							],
 						},
@@ -32,8 +38,19 @@ export default function card() {
 			];
 		},
 		events(slug, view) {
-			let cards = document.querySelectorAll('.card');
-			cards.forEach((item) => item.addEventListener('click', () => getData(`${slug}/${item.dataset.id}`, view, post)));
+			let cardButtons = document.querySelectorAll('.button');
+			cardButtons.forEach((item) => {
+				item.addEventListener('click', () => {
+					getData(`posts/${item.dataset.id}?_embed`, view, post);
+					scrollToTop();
+				});
+				item.addEventListener('mouseenter', (e) => {
+					e.target.parentElement.parentElement.childNodes[0].classList.remove('card__image--grayscale');
+				});
+				item.addEventListener('mouseleave', (e) => {
+					e.target.parentElement.parentElement.childNodes[0].classList.add('card__image--grayscale');
+				});
+			});
 		},
 	};
 

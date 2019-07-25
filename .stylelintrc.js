@@ -31,7 +31,12 @@ module.exports = {
 		'comment-whitespace-inside': 'always',
 		'comment-empty-line-before': 'never',
 		'at-rule-no-vendor-prefix': true,
-		'rule-empty-line-before': 'always',
+		'rule-empty-line-before': [
+			'always',
+			{
+				ignore: ['after-comment', 'first-nested', 'inside-block'],
+			},
+		],
 		'selector-pseudo-element-colon-notation': 'double',
 		'selector-no-vendor-prefix': true,
 		'media-feature-name-no-vendor-prefix': true,
