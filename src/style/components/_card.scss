@@ -6,10 +6,10 @@
 	box-shadow: $shadow;
 	display: flex;
 	flex-direction: row;
-	align-content: stretch;
+	//align-content: stretch;
 	flex-wrap: wrap;
 	animation: fadeIn 1s ease;
-	position: relative;
+	//position: relative;
 
 	& > * {
 		width: 100%;
