@@ -5,9 +5,9 @@
 	background-image: $gradient-white;
 	box-shadow: $shadow;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	//align-content: stretch;
-	flex-wrap: wrap;
+	//flex-wrap: wrap;
 	animation: fadeIn 1s ease;
 	//position: relative;
 
