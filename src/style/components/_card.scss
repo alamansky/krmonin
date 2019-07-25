@@ -17,11 +17,11 @@
 		height: auto;
 		margin-bottom: 0;
 		padding-bottom: 0;
-		vertical-align: bottom;
+		//vertical-align: bottom;
 		transition: $brand-transition;
 
 		&--grayscale {
-			filter: grayscale(100%);
+			//filter: grayscale(100%);
 		}
 	}
 
