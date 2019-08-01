@@ -29,7 +29,7 @@ export default function card() {
 									'div.card__excerpt': `${post.excerpt.rendered}`,
 								},
 								{
-									[`button.button.button--primary.card__button[data-id=${post.id}`]: 'Continue Reading',
+									[`button.button.button--secondary.card__button[data-id=${post.id}`]: 'Continue Reading',
 								},
 							],
 						},

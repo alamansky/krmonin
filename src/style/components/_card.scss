@@ -1,15 +1,11 @@
 /** @format */
 
 .card {
-	margin: $small 0 0 $small;
+	//margin: $large 0 0 $large;
 	background-image: $gradient-white;
 	box-shadow: $shadow;
-	display: flex;
-	flex-direction: column;
-	//align-content: stretch;
-	//flex-wrap: wrap;
 	animation: fadeIn 1s ease;
-	//position: relative;
+	position: relative;
 
 	& > * {
 		width: 100%;
@@ -17,9 +13,7 @@
 
 	&__image {
 		width: 100%;
-		margin-bottom: 0;
-		padding-bottom: 0;
-		//vertical-align: bottom;
+		vertical-align: bottom;
 		transition: $brand-transition;
 
 		&--grayscale {
@@ -28,8 +22,9 @@
 	}
 
 	&__text {
-		border-top: 2px solid $primary-color-light;
+		border-top: 2px solid $secondary-color;
 		padding: $tiny;
+		margin-bottom: $large;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -55,7 +50,8 @@
 	}
 
 	&__button {
-		margin-top: auto;
+		position: absolute;
+		bottom: $small;
 		margin-bottom: $tiny;
 	}
 
@@ -65,10 +61,10 @@
 
 		& > .card__text {
 			@media screen and (min-width: 576px) {
-				position: relative;
+				/* position: relative;
 				margin-top: -15rem;
 				background-color: $brand-white;
-				z-index: 1;
+				z-index: 1; */
 			}
 		}
 	}

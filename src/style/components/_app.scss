@@ -1,7 +1,7 @@
 /** @format */
 
 :root {
-	font-size: calc(10px + (16 - 14) * ((100vw - 400px) / (800 - 400)));
+	font-size: calc(12px + (16 - 14) * ((100vw - 400px) / (800 - 400)));
 }
 
 body {
@@ -31,8 +31,7 @@ h1 {
 }
 
 p {
-	font-family: 'Merriweather', serif;
-	opacity: 0.9;
+	opacity: 0.8;
 }
 
 .content {
@@ -43,12 +42,14 @@ p {
 	width: 75%;
 	min-height: 100vh;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 50%));
+	grid-template-columns: repeat(2, minmax(200px, 1fr));
 	grid-template-rows: minmax(min-content, max-content);
-	padding-right: $small;
-	padding-bottom: $small;
+	padding: $small;
+	padding-top: $small;
 	background-color: $brand-gray;
 	opacity: 1;
+
+	grid-gap: $small;
 
 	@media #{$tablet} {
 		width: 100%;
@@ -56,7 +57,8 @@ p {
 	}
 
 	@media #{$mobile} {
-		grid-template-columns: repeat(auto-fit, minmax(200px, 100%));
+		grid-template-columns: repeat(1, minmax(200px, 1fr));
+		background-color: $brand-white;
 	}
 }
 
@@ -72,17 +74,17 @@ p {
 	&:hover {
 		cursor: pointer;
 		letter-spacing: 0.1rem;
-		background-color: rgba($secondary-color, 1);
+		background-color: rgba($primary-color-light, 1);
 	}
 
 	&--primary {
-		background-color: rgba($secondary-color, 0.7);
+		background-color: rgba($primary-color-light, 0.7);
 		color: $brand-white;
 	}
 
 	&--secondary {
-		border: 2px solid rgba($secondary-color, 0.7);
-		color: $secondary-color;
+		border: 2px solid rgba($primary-color-light, 0.7);
+		color: $primary-color-light;
 		background-color: rgba($brand-white, 0);
 
 		&:hover {
@@ -91,17 +93,18 @@ p {
 	}
 
 	&--secondary--mc {
-		border: 2px solid rgba($secondary-color, 0.7) !important;
-		color: $secondary-color !important;
+		border: 2px solid rgba($primary-color-light, 0.7) !important;
+		color: $primary-color-light !important;
 		background-color: rgba($brand-white, 0) !important;
 
 		&:hover {
 			color: $brand-white !important;
-			background-color: rgba($secondary-color, 1) !important;
+			background-color: rgba($primary-color-light, 1) !important;
 		}
 	}
 }
 
 .test {
 	opacity: 0.5;
+	transition: $brand-transition;
 }

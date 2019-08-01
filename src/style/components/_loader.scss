@@ -9,7 +9,7 @@
 	&::after {
 		content: '';
 		position: absolute;
-		border: 5px dashed $secondary-color;
+		border: 5px dashed $primary-color-light;
 		top: calc(50% - 25px);
 		left: calc(50% - 25px);
 		width: 50px;

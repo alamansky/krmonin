@@ -6,8 +6,13 @@
 	grid-column: 1 / -1;
 	animation: fadeIn 1s ease;
 
+	@media screen and (min-width: 576px) {
+		background-color: $brand-white;
+		box-shadow: $shadow;
+	}
+
 	&__image {
-		float: left;
+		//float: left;
 		margin-right: $small;
 		margin-bottom: $small;
 		max-width: 100%;

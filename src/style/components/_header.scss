@@ -8,7 +8,7 @@
 	left: 0;
 	height: 100vh;
 	width: 25%;
-	border-right: 0.3rem solid rgba($secondary-color, 0.5);
+	border-right: 0.3rem solid rgba($primary-color-light, 0.5);
 	background-image: $gradient-white;
 	padding: 0 $large 0 $large;
 	box-shadow: $shadow;
@@ -38,7 +38,7 @@
 
 	&__social {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 		align-items: center;
 		justify-items: center;
 		padding: $tiny 0 0 0;
@@ -119,8 +119,9 @@
 	}
 
 	&__headshot {
-		max-height: 5rem;
+		max-height: 10rem;
 		margin-bottom: $small;
+		//border-radius: 50%;
 
 		@media #{$tablet} {
 			display: none;
@@ -136,7 +137,7 @@
 		flex-direction: column;
 		position: relative;
 		border-top: 1px solid rgba($brand-black, 0.2);
-		padding: 0;
+		padding: $tiny 0 $tiny 0;
 
 		&::before {
 			content: 'Menu';
@@ -175,7 +176,7 @@
 			opacity: 1;
 
 			&::marker {
-				color: $secondary-color;
+				color: $primary-color-light;
 				list-style-type: disc;
 			}
 		}
