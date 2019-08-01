@@ -139,23 +139,6 @@
 		border-top: 1px solid rgba($brand-black, 0.2);
 		padding: $tiny 0 $tiny 0;
 
-		&::before {
-			content: 'Menu';
-			width: 3.5rem;
-			padding: 0.2rem;
-			font-size: 1rem;
-			position: relative;
-			z-index: 1;
-			background-color: $brand-white;
-			color: $primary-color;
-			top: -0.9rem;
-			left: 1rem;
-
-			@media #{$tablet} {
-				display: none;
-			}
-		}
-
 		@media #{$tablet} {
 			flex-direction: row;
 			justify-content: space-around;

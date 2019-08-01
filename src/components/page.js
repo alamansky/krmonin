@@ -7,12 +7,12 @@ export default function page() {
 				{
 					'article.page': [
 						{
-							'img.page__image': {
+							'img.page__image.page__image--left': {
 								src: post['_embedded']['wp:featuredmedia']['0'].media_details.sizes.full.source_url,
 							},
 						},
 						{
-							'h2.page__title': post.title.rendered,
+							'h1.page__title': post.title.rendered,
 						},
 						{
 							'div.page__body': post.content.rendered,

@@ -10,9 +10,8 @@ import page from './components/page';
 import post from './components/post';
 import header from './components/header';
 import social from './components/social';
+import contactPage from './components/contact';
 import { loaders } from './components/loaders';
-
-import { contact } from './pages/contact';
 
 const feed = document.querySelector('.content');
 const header__profile = document.querySelector('.header__profile');
@@ -26,36 +25,39 @@ const menu__list = document.querySelector('.menu__list');
 menu__list.addEventListener('click', handleMenuClick);
 
 let route = null;
+
+function parseRoute(route) {
+	let routes = ['home', 'stories', 'blog', 'about', 'contact'];
+	let routeObj = {
+		home: () => getData('posts?_embed', feed, card),
+		stories: () => {
+			route.includes('/')
+				? getData(`posts/${route.split('/')[1]}?_embed`, feed, post)
+				: getData('posts?_embed&categories=3', feed, card);
+		},
+		blog: () => {
+			route.includes('/')
+				? getData(`posts/${route.split('/')[1]}?_embed`, feed, post)
+				: getData('posts?_embed&categories=2', feed, card);
+		},
+		about: () => getData('pages?_embed&slug=about-me', feed, page),
+		contact: () => {
+			getData('pages?_embed&slug=contact-page', feed, contactPage);
+		},
+	};
+	routes.map((x) => {
+		if (route.includes(x)) {
+			routeObj[x]();
+		}
+	});
+}
+
 function router() {
 	let newRoute = window.location.hash;
 	if (newRoute != route) {
 		route = newRoute;
-		switch (route) {
-			case '#home':
-				getData('posts?_embed', feed, card);
-				break;
-			case '#stories':
-				getData('posts?_embed&categories=3', feed, card);
-				break;
-			case '#blog':
-				getData('posts?_embed&categories=2', feed, card);
-				break;
-			case '#about':
-				getData('pages?_embed&slug=about-me', feed, page);
-				break;
-			case '#contact':
-				document.querySelector('.content').innerHTML = contact.form;
-				document.querySelector('#mc-embedded-subscribe').addEventListener('click', function() {
-					let y = document.querySelector('.contact--success');
-					y && document.removeChild(y);
-					document.querySelector('#mce-NAME').value = '';
-					document.querySelector('#mce-EMAIL').value = '';
-					let x = document.createElement('div');
-					x.innerHTML = contact.success;
-					document.querySelector('#mc_embed_signup').appendChild(x);
-				});
-				break;
-		}
+
+		parseRoute(route);
 		scrollToTop();
 	}
 }

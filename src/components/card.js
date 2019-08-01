@@ -1,8 +1,6 @@
 /** @format */
 
-import getData from '../utility/getData';
-import post from './post';
-import scrollToTop from '../utility/scrollToTop';
+import { router } from '../utility/router';
 
 export default function card() {
 	let arr = {
@@ -29,7 +27,9 @@ export default function card() {
 									'div.card__excerpt': `${post.excerpt.rendered}`,
 								},
 								{
-									[`button.button.button--secondary.card__button[data-id=${post.id}`]: 'Continue Reading',
+									[`button.button.button--secondary.card__button[data-id=${post.id}[data-type=${
+										post.categories[0] == 2 ? 'blog' : 'stories'
+									}`]: 'Continue Reading',
 								},
 							],
 						},
@@ -37,12 +37,11 @@ export default function card() {
 				},
 			];
 		},
-		events(slug, view) {
+		events() {
 			let cardButtons = document.querySelectorAll('.button');
 			cardButtons.forEach((item) => {
 				item.addEventListener('click', () => {
-					getData(`posts/${item.dataset.id}?_embed`, view, post);
-					scrollToTop();
+					router.updateRoute(`#${item.dataset.type}/${item.dataset.id}`);
 				});
 				item.addEventListener('mouseenter', (e) => {
 					e.target.parentElement.parentElement.childNodes[0].classList.remove('card__image--grayscale');

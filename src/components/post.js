@@ -1,8 +1,7 @@
 /** @format */
 
 import env from '../../env.json';
-import getData from '../utility/getData';
-import scrollToTop from '../utility/scrollToTop';
+import { router } from '../utility/router';
 
 export default function post() {
 	let arr = {
@@ -35,7 +34,7 @@ export default function post() {
 				},
 			];
 		},
-		async events(slug, view) {
+		async events() {
 			// get category of post (blog vs story) from post's data-dash attribute
 			let category = document.querySelector('.page').dataset.type;
 			// create url for custom blog/story ID route
@@ -66,14 +65,17 @@ export default function post() {
 
 			findAdjacentPostIDs();
 
+			// bad code, get rid of this...
+			if (category == 'story') {
+				category = 'stories';
+			}
+
 			//add event listeners
 			document.querySelector('.page__next').addEventListener('click', () => {
-				getData(`posts/${next}?_embed`, view, post);
-				scrollToTop();
+				router.updateRoute(`#${category}/${next}`);
 			});
 			document.querySelector('.page__previous').addEventListener('click', () => {
-				getData(`posts/${prev}?_embed`, view, post);
-				scrollToTop();
+				router.updateRoute(`#${category}/${prev}`);
 			});
 		},
 	};

@@ -16,6 +16,11 @@
 		margin-right: $small;
 		margin-bottom: $small;
 		max-width: 100%;
+
+		&--left {
+			float: left;
+			width: 50%;
+		}
 	}
 
 	&__buttons {
