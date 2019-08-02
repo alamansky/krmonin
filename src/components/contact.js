@@ -49,6 +49,15 @@ export default function contactPage() {
 							'div.page__body': post.content.rendered,
 						},
 						{
+							hr: '',
+						},
+						{
+							'div.formHTML': formHTML,
+						},
+						{
+							hr: '',
+						},
+						{
 							'div.contact__images': [
 								{
 									[`a.contact__link[target=_blank[href="${post.acf.left_side_image_link_url}"`]: [
@@ -65,12 +74,6 @@ export default function contactPage() {
 									],
 								},
 							],
-						},
-						{
-							hr: '',
-						},
-						{
-							'div.formHTML': formHTML,
 						},
 					],
 				},

@@ -70,6 +70,7 @@ blockquote p {
 hr {
 	color: $secondary-color;
 	opacity: 0.5;
+	margin: $small 0 $small 0;
 }
 
 .content {
@@ -77,7 +78,7 @@ hr {
 	z-index: -1;
 	top: 0;
 	right: 0;
-	width: 75%;
+	width: 70%;
 	min-height: 100vh;
 	display: grid;
 	grid-template-columns: repeat(2, minmax(200px, 1fr));

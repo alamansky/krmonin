@@ -7,10 +7,10 @@
 	top: 0;
 	left: 0;
 	height: 100vh;
-	width: 25%;
+	width: 30%;
 	border-right: 0.3rem solid rgba($primary-color-light, 0.5);
 	background-image: $gradient-white;
-	padding: 0 $large 0 $large;
+	padding: 0 $small 0 $large;
 	box-shadow: $shadow;
 
 	@media #{$desktop} {
@@ -100,7 +100,8 @@
 
 	&__blurb {
 		opacity: 0.7;
-		margin-top: $small;
+		margin: $tiny 0 0 0;
+		font-weight: 300;
 
 		@media #{$tablet} {
 			display: none;
@@ -121,6 +122,7 @@
 	&__headshot {
 		max-height: 10rem;
 		margin-bottom: $small;
+		margin-top: $tiny;
 		//border-radius: 50%;
 
 		@media #{$tablet} {
@@ -137,7 +139,7 @@
 		flex-direction: column;
 		position: relative;
 		border-top: 1px solid rgba($brand-black, 0.2);
-		padding: $tiny 0 $tiny 0;
+		padding: $tiny 0 0 0;
 
 		@media #{$tablet} {
 			flex-direction: row;
@@ -148,7 +150,7 @@
 	}
 
 	&__link {
-		margin-bottom: $tiny;
+		margin-bottom: 0.5rem;
 		list-style-type: circle;
 		transition: $brand-transition;
 		opacity: 0.7;

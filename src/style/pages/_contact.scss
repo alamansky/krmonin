@@ -23,6 +23,12 @@
 
 .contact__image {
 	width: 100%;
+	filter: grayscale(100%);
+	transition: $brand-transition;
+}
+
+.contact__image:hover {
+	filter: none;
 }
 /* from Mailchimp */
 
