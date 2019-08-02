@@ -7,7 +7,7 @@
 	top: 0;
 	left: 0;
 	height: 100vh;
-	width: 30%;
+	width: 25%;
 	border-right: 0.3rem solid rgba($primary-color-light, 0.5);
 	background-image: $gradient-white;
 	padding: 0 $small 0 $large;
@@ -29,6 +29,8 @@
 		width: 100%;
 		min-height: $extraLarge;
 		background-color: rgba($brand-white, 0);
+		overflow: hidden;
+		margin-bottom: 2rem;
 
 		@media #{$tablet} {
 			z-index: 10;
