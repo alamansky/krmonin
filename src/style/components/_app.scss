@@ -11,26 +11,18 @@
 
 body {
 	background-image: $gradient-gray;
-	font-family: 'Merriweather Sans', sans-serif;
+	color: $brand-black;
+	font-family: 'Lato', sans-serif;
 	line-height: 1.5;
 	overflow-x: hidden;
 	margin: 0;
 	padding: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: 'Lato', sans-serif;
-}
-
 h1 {
-	font-size: 2rem;
+	font-size: 2.5rem;
+	font-weight: 300;
 	letter-spacing: 0.1rem;
-	opacity: 0.7;
 	border-bottom: 0.3rem solid rgba($secondary-color, 0.5);
 	display: inline-block;
 }
@@ -59,7 +51,6 @@ h6 {
 }
 
 p {
-	opacity: 0.8;
 	font-size: 1rem !important;
 }
 
@@ -75,6 +66,11 @@ hr {
 
 iframe {
 	max-width: 100%;
+}
+
+article h2,
+article h3 {
+	font-weight: 400;
 }
 
 .content {
