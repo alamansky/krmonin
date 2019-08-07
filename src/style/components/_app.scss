@@ -73,6 +73,10 @@ hr {
 	margin: $small 0 $small 0;
 }
 
+iframe {
+	max-width: 100%;
+}
+
 .content {
 	position: absolute;
 	z-index: -1;
