@@ -8,7 +8,7 @@ export default function header() {
 					'div.profile': [
 						{ 'button.button--hamburger': '' },
 						{
-							'h2.profile__title': post.title.rendered,
+							'img.profile__title': { src: post.acf.logo },
 						},
 						{
 							'h4.profile__blurb': post.acf.blurb,

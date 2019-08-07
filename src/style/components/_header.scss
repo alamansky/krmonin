@@ -116,8 +116,10 @@
 		border-bottom: 1px solid rgba($brand-black, 0.8);
 		margin-top: $small;
 		margin-bottom: 0;
+		max-width: 100%;
 
-		@media #{$mobile} {
+		@media #{$tablet} {
+			max-width: 25%;
 			align-self: start;
 		}
 	}
