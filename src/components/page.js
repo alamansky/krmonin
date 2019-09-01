@@ -7,9 +7,7 @@ export default function page() {
 				{
 					'article.page': [
 						{
-							'img.page__image.page__image--left': {
-								src: post['_embedded']['wp:featuredmedia']['0'].media_details.sizes.full.source_url,
-							},
+							[`img.page__image.page__image--left[src="${post['_embedded']['wp:featuredmedia']['0'].media_details.sizes.full.source_url}"`]: null,
 						},
 						{
 							'h1.page__title': post.title.rendered,

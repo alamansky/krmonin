@@ -11,9 +11,9 @@ export default function card() {
 						post.categories[0] == 2 ? 'blog' : 'story'
 					}`]: [
 						{
-							[`img.card__image${post.acf.featured ? '.card__image--featured' : ''}.card__image--grayscale`]: {
-								src: post['_embedded']['wp:featuredmedia']['0'].media_details.sizes.full.source_url,
-							},
+							[`img.card__image${post.acf.featured ? '.card__image--featured' : ''}.card__image--grayscale[src="${
+								post['_embedded']['wp:featuredmedia']['0'].media_details.sizes.full.source_url
+							}"`]: null,
 						},
 						{
 							'div.card__text': [

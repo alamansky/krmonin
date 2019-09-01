@@ -10,9 +10,7 @@ export default function post() {
 				{
 					[`article.page[data-id=${post.id}[data-type=${post.categories[0] == 2 ? 'blog' : 'story'}`]: [
 						{
-							'img.page__image': {
-								src: post['_embedded']['wp:featuredmedia']['0'].media_details.sizes.full.source_url,
-							},
+							[`img.page__image[src="${post['_embedded']['wp:featuredmedia']['0'].media_details.sizes.full.source_url}"`]: null,
 						},
 						{
 							'h1.page__title': post.title.rendered,

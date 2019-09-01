@@ -8,13 +8,13 @@ export default function header() {
 					'div.profile': [
 						{ 'button.button--hamburger': '' },
 						{
-							'img.profile__title': { src: post.acf.logo },
+							[`img.profile__title[src="${post.acf.logo}"`]: null,
 						},
 						{
 							'h4.profile__blurb': post.acf.blurb,
 						},
 						{
-							'img.profile__headshot': { src: post.acf.image },
+							[`img.profile__headshot[src="${post.acf.image}"`]: null,
 						},
 					],
 				},
