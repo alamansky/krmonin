@@ -1,7 +1,7 @@
 /** @format */
 
 import env from '../../env.json';
-import { router } from '../utility/router';
+import router from '../utility/router';
 
 export default function post() {
 	let arr = {

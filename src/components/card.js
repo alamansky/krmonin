@@ -1,35 +1,38 @@
 /** @format */
 
-import { router } from '../utility/router';
+import router from '../utility/router';
 
 export default function card() {
 	let arr = {
 		markup(post) {
+			let data = {
+				title: post.title.rendered,
+				subtitle: post.acf.subtitle,
+				post: post.excerpt.rendered,
+				isFeatured: post.acf.featured ? '.card--featured' : '',
+				isFeaturedImage: post.acf.featured ? '.card__image--featured' : '',
+				category: post.categories[0] == 2 ? 'blog' : 'stories',
+				imgSrc: post['_embedded']['wp:featuredmedia']['0'].media_details.sizes.full.source_url,
+			};
 			return [
 				{
-					[`div.card${post.acf.featured ? '.card--featured' : ''}[data-type=${
-						post.categories[0] == 2 ? 'blog' : 'story'
-					}`]: [
+					[`div.card${data.isFeatured}`]: [
 						{
-							[`img.card__image${post.acf.featured ? '.card__image--featured' : ''}.card__image--grayscale[src="${
-								post['_embedded']['wp:featuredmedia']['0'].media_details.sizes.full.source_url
-							}"`]: null,
+							[`img.card__image${data.isFeaturedImage}.card__image--grayscale[src="${data.imgSrc}"`]: null,
 						},
 						{
 							'div.card__text': [
 								{
-									'h2.card__title': post.title.rendered,
+									'h2.card__title': data.title,
 								},
 								{
-									'h3.card__subtitle': post.acf.subtitle,
+									'h3.card__subtitle': data.subtitle,
 								},
 								{
-									'div.card__excerpt': `${post.excerpt.rendered}`,
+									'div.card__excerpt': data.post,
 								},
 								{
-									[`button.button.button--secondary.card__button[data-id=${post.id}[data-type=${
-										post.categories[0] == 2 ? 'blog' : 'stories'
-									}`]: 'Continue Reading',
+									[`button.button.button--secondary.card__button[data-id=${post.id}[data-type=${data.category}`]: 'Continue Reading',
 								},
 							],
 						},
