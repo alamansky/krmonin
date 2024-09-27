@@ -44,5 +44,5 @@ router.on('about', () => getData('pages?_embed&slug=about-me', feed, page));
 router.on('contact', () => {
 	getData('pages?_embed&slug=contact-page', feed, contactPage);
 });
-
+router.on('appearances', () => getData('pages?_embed&slug=appearances', feed, page));
 router.init();
