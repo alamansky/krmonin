@@ -11,6 +11,7 @@ import post from './components/post';
 import header from './components/header';
 import social from './components/social';
 import contactPage from './components/contact';
+import appearances from './components/appearances';
 import { loaders } from './components/loaders';
 
 const feed = document.querySelector('.content');
@@ -44,5 +45,5 @@ router.on('about', () => getData('pages?_embed&slug=about-me', feed, page));
 router.on('contact', () => {
 	getData('pages?_embed&slug=contact-page', feed, contactPage);
 });
-router.on('appearances', () => getData('pages?_embed&slug=appearances', feed, page));
+router.on('appearances', () => getData('pages?_embed&slug=appearances', feed, appearances));
 router.init();
