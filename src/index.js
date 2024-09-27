@@ -3,7 +3,7 @@
 import './style/style.scss';
 
 import getData from './utility/getData';
-import scrollToTop from './utility/scrollToTop';
+import router from './utility/router';
 
 import card from './components/card';
 import page from './components/page';
@@ -11,6 +11,7 @@ import post from './components/post';
 import header from './components/header';
 import social from './components/social';
 import contactPage from './components/contact';
+import appearances from './components/appearances';
 import { loaders } from './components/loaders';
 
 const feed = document.querySelector('.content');
@@ -24,47 +25,25 @@ getData('posts?_embed', feed, card);
 const menu__list = document.querySelector('.menu__list');
 menu__list.addEventListener('click', handleMenuClick);
 
-let route = null;
-
-function parseRoute(route) {
-	let routes = ['home', 'stories', 'blog', 'about', 'contact'];
-	let routeObj = {
-		home: () => getData('posts?_embed', feed, card),
-		stories: () => {
-			route.includes('/')
-				? getData(`posts/${route.split('/')[1]}?_embed`, feed, post)
-				: getData('posts?_embed&categories=3', feed, card);
-		},
-		blog: () => {
-			route.includes('/')
-				? getData(`posts/${route.split('/')[1]}?_embed`, feed, post)
-				: getData('posts?_embed&categories=2', feed, card);
-		},
-		about: () => getData('pages?_embed&slug=about-me', feed, page),
-		contact: () => {
-			getData('pages?_embed&slug=contact-page', feed, contactPage);
-		},
-	};
-	routes.map((x) => {
-		if (route.includes(x)) {
-			routeObj[x]();
-		}
-	});
-}
-
-function router() {
-	let newRoute = window.location.hash;
-	if (newRoute != route) {
-		route = newRoute;
-
-		parseRoute(route);
-		scrollToTop();
-	}
-}
-
-setInterval(router, 500);
-
 function handleMenuClick(e) {
-	let clickedItem = e.target.textContent.toLowerCase();
-	window.location.hash = `#${clickedItem}`;
+	let clickedItem = e.target.textContent;
+	router.updateRoute(`#${clickedItem}`);
 }
+
+router.on('home', () => getData('posts?_embed', feed, card));
+router.on('stories', () => {
+	router.currentRoute.includes('/')
+		? getData(`posts/${router.currentRoute.split('/')[1]}?_embed`, feed, post)
+		: getData('posts?_embed&categories=3', feed, card);
+});
+router.on('blog', () => {
+	router.currentRoute.includes('/')
+		? getData(`posts/${router.currentRoute.split('/')[1]}?_embed`, feed, post)
+		: getData('posts?_embed&categories=2', feed, card);
+});
+router.on('about', () => getData('pages?_embed&slug=about-me', feed, page));
+router.on('contact', () => {
+	getData('pages?_embed&slug=contact-page', feed, contactPage);
+});
+router.on('appearances', () => getData('pages?_embed&slug=appearances', feed, appearances));
+router.init();

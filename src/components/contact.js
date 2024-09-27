@@ -62,14 +62,14 @@ export default function contactPage() {
 								{
 									[`a.contact__link[target=_blank[href="${post.acf.left_side_image_link_url}"`]: [
 										{
-											'img.contact__image.contact__image--left': { src: post.acf.left_side_image },
+											[`img.contact__image.contact__image--left[src="${post.acf.left_side_image}"`]: null,
 										},
 									],
 								},
 								{
 									[`a.contact__link[target=_blank[href="${post.acf.right_side_image_link_url}"`]: [
 										{
-											'img.contact__image.contact__image--right': { src: post.acf.right_side_image },
+											[`img.contact__image.contact__image--right[src="${post.acf.right_side_image}"`]: null,
 										},
 									],
 								},
